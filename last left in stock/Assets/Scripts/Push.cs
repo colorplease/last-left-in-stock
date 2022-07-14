@@ -6,8 +6,16 @@ public class Push : MonoBehaviour
 {
   [SerializeField]GameObject[] Obstacles;
     [SerializeField]GameObject[] boxes;
+    Vector2 startPos;
     // Start is called before the first frame update
     void Start()
+    {
+        Obstacles = GameObject.FindGameObjectsWithTag("Obstacles");
+        boxes = GameObject.FindGameObjectsWithTag("box");
+        startPos = transform.position;
+    }
+
+    public void ReCallObjects()
     {
         Obstacles = GameObject.FindGameObjectsWithTag("Obstacles");
         boxes = GameObject.FindGameObjectsWithTag("box");
@@ -16,7 +24,17 @@ public class Push : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
+    }
+
+    public void SetResetPos()
+    {
+        startPos = transform.position;
+    }
+
+    public void ResetPos()
+    {
+        transform.position = startPos;
     }
 
     public bool Move(Vector2 direction)

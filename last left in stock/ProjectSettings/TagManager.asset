@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Obstacles
   - box
+  - GameManager
+  - boxDrop
   layers:
   - Default
   - TransparentFX

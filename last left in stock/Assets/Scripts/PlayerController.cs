@@ -11,20 +11,34 @@ public class PlayerController : MonoBehaviour
     [SerializeField]bool readyToMove;
     public bool isPlayer1;
     Vector2 moveInput;
+    Vector2 startPos;
     // Start is called before the first frame update
     void Start()
     {
         Obstacles = GameObject.FindGameObjectsWithTag("Obstacles");
         boxes = GameObject.FindGameObjectsWithTag("box");
+        startPos = transform.position;
+    }
+
+    public void ReCallObjects()
+    {
+        Obstacles = GameObject.FindGameObjectsWithTag("Obstacles");
+        boxes = GameObject.FindGameObjectsWithTag("box");
+    }
+
+    public void SetResetPos()
+    {
+        startPos = transform.position;
+    }
+
+    public void ResetPos()
+    {
+        transform.position = startPos;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.R))
-        {
-            SceneManager.LoadScene(0);
-        }
         if(isPlayer1)
         {
              moveInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
