@@ -37,7 +37,7 @@ public class GameManager : MonoBehaviour
 
     IEnumerator NextLevel()
     {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.1f);
         World.SetActive(false);
         Destroy(currentLevel);
         youWin.SetActive(true);
